@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Goofy Fish Pond</title>
+<style>
+:root{--site-primary:#18a9a0;--site-on-primary:#fff;--site-secondary:#ffe27a;--site-on-secondary:#49350b;--site-background:#dff8f2;--site-on-background:#173b3b;font-family:"Trebuchet MS",Arial,sans-serif;color-scheme:light dark}
+*{box-sizing:border-box}body{margin:0;font-family:inherit;background:var(--site-background);color:var(--site-on-background)}
+#app{min-height:100vh;width:100%;background:var(--site-background);color:var(--site-on-background);overflow:hidden;position:relative}
+header{background:var(--site-primary);color:var(--site-on-primary);padding:18px 20px;text-align:center}header h1{font-size:clamp(1.8rem,5vw,3rem);margin:0;letter-spacing:.02em}header p{margin:7px 0 0;font-weight:700}
+main{max-width:920px;margin:0 auto;padding:22px}
+.panel{display:none;text-align:center;background:light-dark(#fff,#183b3a);border:4px solid var(--site-primary);border-radius:28px;padding:clamp(18px,4vw,36px);box-shadow:0 8px 0 color-mix(in srgb,var(--site-primary) 35%,transparent)}
+.panel.active{display:block;animation:pop .35s ease-out}@keyframes pop{from{opacity:.3;transform:translateY(9px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+h2{font-size:clamp(1.5rem,4vw,2.3rem);margin:8px 0 14px}p{line-height:1.55;font-size:1.08rem}
+button{border:0;border-radius:999px;padding:13px 22px;margin:8px;background:var(--site-secondary);color:var(--site-on-secondary);font:bold 1rem "Trebuchet MS",Arial,sans-serif;cursor:pointer;box-shadow:0 4px 0 #c99e36}
+button:hover{transform:translateY(-2px);filter:brightness(1.04)}button:focus-visible{outline:4px solid #e35d9b;outline-offset:3px}
+.big-art{font-size:clamp(5rem,17vw,10rem);line-height:1.2;margin:10px 0}.fish{display:inline-block;filter:drop-shadow(0 5px 0 #9bd7dc);animation:wiggle 2s infinite ease-in-out}
+@keyframes wiggle{0%,100%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(5deg) translateY(-7px)}}
+.note{display:inline-block;background:#fff2bb;color:#573d12;border-radius:18px;padding:10px 16px;font-weight:800}
+.friend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:18px}.friend{border-radius:20px;padding:14px;background:light-dark(#fff5d8,#294e4b);border:2px dashed var(--site-primary)}.friend .emoji{font-size:3.6rem}
+.turkey{font-size:6rem}.monster{display:inline-block;background:#ffe65c;color:#54420a;border-radius:48% 48% 42% 42%;padding:24px 28px 30px;box-shadow:inset 0 -10px #e7bf35,0 8px 0 #b8a02c}
+.eyes{display:flex;justify-content:center;gap:8px;margin:2px auto 15px}.eye{width:34px;height:42px;border-radius:50%;background:#fff;border:2px solid #5b4a1a;position:relative}.eye:after{content:"";width:11px;height:14px;border-radius:50%;background:#283d51;position:absolute;top:14px;left:12px}
+.monster-mouth{font-size:2rem}.pie-character{display:inline-flex;flex-direction:column;align-items:center;background:#e99535;border:7px solid #a95720;border-radius:48% 48% 35% 35%;padding:15px 22px 22px;box-shadow:inset 0 -12px #c76e29,0 8px 0 #9b5529;color:#572d16;position:relative}
+.pie-character .cream{font-size:2.8rem;line-height:1;margin-top:-10px}.pie-character .bow{font-size:2.6rem;position:absolute;top:-34px;right:5px;transform:rotate(12deg)}.pie-face{font-size:2rem;letter-spacing:4px;margin:4px 0}.pie-smile{font-size:1.8rem;font-weight:900}.pie-dress{margin-top:7px;background:#f58fbd;color:#6d2850;padding:9px 18px 13px;border-radius:12px 12px 45% 45%;font-weight:900;border:3px solid #d65d94}
+.footer{text-align:center;padding:16px;font-size:.9rem;opacity:.8}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="app">
+<header><h1>🐟 The Goofy Fish Pond 🐟</h1><p>A silly little place for fish, friends, and giggles!</p></header>
+<main>
+<section class="panel active" id="screen1"><div class="big-art">🎣🌈🐠</div><h2>Welcome to the Goofy Fish Pond!</h2><p>Grab your pretend fishing rod and get ready for the goofiest pond adventure ever.</p><div class="note">No real fish need to be caught. Just giggles!</div><br><button onclick="showScreen(2)">Let's go fishing! 🎣</button></section>
+<section class="panel" id="screen2"><div class="big-art">🌊🫧🪷</div><h2>You're at the pond!</h2><p>Listen closely… something wiggly is swimming your way.</p><button onclick="showScreen(3)">Reel in the surprise!</button></section>
+<section class="panel" id="screen3"><div class="big-art"><span class="fish">🐟</span> 😎</div><h2>THE GOOFIEST FISH!</h2><p>Look at those sunglasses and those silly buck teeth! This fish thinks it's the coolest dancer in the pond.</p><div class="note">🎵 Wiggle, wiggle, splash, SPLASH! 🎵</div><br><button onclick="showScreen(4)">Who's that behind the lily pad?</button></section>
+<section class="panel" id="screen4"><div class="big-art"><span class="monster"><span class="eyes"><i class="eye"></i><i class="eye"></i><i class="eye"></i><i class="eye"></i><i class="eye"></i></span><span class="monster-mouth">〰️</span></span></div><h2>A FIVE-EYED YELLOW GOOFBALL!</h2><p>Surprise! This silly yellow friend has exactly five googly eyes. Not scary—just extra good at looking around!</p><button onclick="showScreen(5)">Find out the joke!</button></section>
+<section class="panel" id="screen5"><div class="big-art">🤣🎉🐠</div><h2>HAHA! YOU GOT TRICKED!</h2><p>It was a goofy surprise all along! Thanks for being a good sport.</p><button onclick="showScreen(6)">See the pond's friends and goodbye</button></section>
+<section class="panel" id="screen6"><div class="big-art">🦃🍂🎃</div><h2>Meet Mr. Gobble!</h2><div class="turkey">🦃</div><p id="turkey-line" class="note">GOBBLE GOBBLE! WHO STOLE MY PANTS?</p><br><button onclick="nextTurkeyLine()">Gobble another silly saying!</button><div class="friend-grid"><div class="friend"><div class="emoji">🐶</div><b>Jake the Dog</b><p>“Dude! Who put a fish in my sandwich?”</p></div><div class="friend"><div class="emoji">👑🍬</div><b>Princess Bubblegum</b><p>Ready for a sweet, silly pond adventure!</p></div><div class="friend"><div class="emoji">🦇🎸</div><b>Marceline</b><p>Bringing a little music to the pond!</p></div></div><p>And now, one last friendly surprise…</p><button onclick="showScreen(7)">Meet the pumpkin-pie girl!</button></section>
+<section class="panel" id="screen7"><h2>Our pumpkin-pie princess! 🥧</h2><div class="big-art"><span class="pie-character"><span class="bow">🎀</span><span class="cream">☁️</span><span class="pie-face">✧ 👀 ✧</span><span class="pie-smile">⌣</span><span class="pie-dress">💗 PINK DRESS 💗</span></span></div><h2>THANK YOU FOR VISITING THE WEBSITE!</h2><p>I'm sorry I led you to this website! I do not want to lose any friends. Next time I won't trick you!</p><div class="note">Happy Thanksgiving! 🍁</div><br><button onclick="showScreen(1)">Visit the pond again!</button></section>
+</main><div class="footer">Made for giggles, friendship, and goofy fish. 💚</div>
+</div>
+<script>
+const turkeyLines=['GOBBLE GOBBLE! WHO STOLE MY PANTS?',"I'M NOT A CHICKEN! I'M A TURKEY!",'WHO PUT MY FEATHERS ON BACKWARDS?',"HAPPY TURKEY DAY! NOW WHERE'S MY SNACK?",'GOBBLE SO LOUD, I SCARED MYSELF!'];let turkeyIndex=0;
+function showScreen(number){document.querySelectorAll('.panel').forEach(panel=>panel.classList.remove('active'));document.getElementById('screen'+number).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+function nextTurkeyLine(){turkeyIndex=(turkeyIndex+1)%turkeyLines.length;document.getElementById('turkey-line').textContent=turkeyLines[turkeyIndex];}
+</script>
+</body></html>
